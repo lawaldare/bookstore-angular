@@ -1,7 +1,8 @@
-import { GeneralService } from './services/general.service';
 import { BookService } from './services/book.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
+
 
 
 @Component({
@@ -15,26 +16,24 @@ export class AppComponent implements OnInit {
   searchedBookArray: any[];
   loading: boolean = false;
 
-  constructor(private bookService: BookService, private toastr: ToastrService, private generalService: GeneralService) { }
+  constructor(private bookService: BookService, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
 
 
-  onSubmit(searchForm){
+  searchBook(form: NgForm){
     this.loading = true;
-    this.generalService.changeState(true);
-    this.searchedBook = searchForm.value.bookName;
+    this.searchedBookArray = [];
+    this.searchedBook = form.value.bookName;
     this.bookService.searchBooks(this.searchedBook).subscribe(data => {
     this.searchedBookArray = data['items'];
-    this.generalService.changeState(false);
     this.loading = false;
     this.toastr.success('Results successfully found');
+    form.resetForm();
     console.log(this.searchedBookArray)
     }, error => {
-      this.toastr.error(error.message);
-      this.generalService.changeState(false);
-      console.log(error);
+      this.toastr.error(error.message || error.error.message);
     })
     }
 }

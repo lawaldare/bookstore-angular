@@ -1,6 +1,6 @@
 <div class="container card mt-5 shadow-lg p-3 mb-5 bg-white rounded">
-  <form #searchForm="ngForm" (ngSubmit)="searchForm.form.valid && onSubmit(searchForm)">
-    <h1 class="display-5 text-center mb-5 text-info">Book Finder</h1>
+  <form #searchForm="ngForm">
+    <h1 class="display-5 text-center mb-5 text-success">Book Finder</h1>
     <div class="row">
       <div class="col-md-8">
         <div class="form-group">
@@ -15,14 +15,15 @@
       </div>
       <div class="col-md-4">
         <div class="form-group">
-          <button class="btn btn-outline-info btn-block" [disabled]="searchForm.invalid">Search</button>
+          <button class="btn btn-outline-success btn-block" [disabled]="searchForm.invalid" (click)="searchBook(searchForm)">Search</button>
         </div>
       </div>
     </div>
   </form>
-  <div class="loading-message" *ngIf="Loading">
-    <h1 class="text-center">Loading</h1>
-  </div>
+</div>
+
+<div class="loading-message" *ngIf="loading">
+  <i class="fas fa-stroopwafel fa-spin text-success"></i>
 </div>
 
 <div class="container box">
