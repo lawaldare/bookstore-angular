@@ -1,8 +1,24 @@
 .loading-message {
-    position: absolute;
-    left: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     i {
         font-size: 25rem;
+    }
+}
+
+
+@media only screen and (max-width: 320px) {
+
+    i {
+        font-size: 10rem;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+
+    i {
+        font-size: 10rem;
     }
 }
