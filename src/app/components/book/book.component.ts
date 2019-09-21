@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BookComponent implements OnInit {
 
-  @Input() searchResults : any[];
+  @Input() searchResults: any[];
 
   constructor() { }
 

@@ -14,8 +14,8 @@ export class AppComponent implements OnInit {
   title = 'bookstore';
   searchedBook: string;
   searchedBookArray: any[];
-  loading: boolean = false;
-  information: string = "Start searching for books."
+  loading = false;
+  information = 'Start searching for books';
 
   constructor(private bookService: BookService, private toastr: ToastrService) { }
 
@@ -23,18 +23,19 @@ export class AppComponent implements OnInit {
   }
 
 
-  searchBook(form: NgForm){
+  searchBook(form: NgForm) {
     this.loading = true;
     this.searchedBookArray = [];
     this.searchedBook = form.value.bookName;
     this.bookService.searchBooks(this.searchedBook).subscribe(data => {
-    this.searchedBookArray = data['items'];
-    console.log(this.searchedBookArray)
-    if(this.searchedBookArray === undefined) this.information = "Sorry, no results for your search";
+    this.searchedBookArray = data.items;
+    if (this.searchedBookArray === undefined) {
+      this.information = 'Sorry, no results for your search';
+    }
     this.loading = false;
     form.resetForm();
     }, error => {
       this.toastr.error(error.message || error.error.message);
-    })
+    });
     }
 }
