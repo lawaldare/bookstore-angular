@@ -1,7 +1,7 @@
 <div class="box" *ngIf="searchResults">
     <div class="card shadow-lg" style="max-width: 540px;" *ngFor="let book of searchResults">
         <div class="row no-gutters">
-          <div class="col-md-4">
+          <div class="col-md-4" *ngIf="book.volumeInfo.imageLinks">
             <img [src]="book.volumeInfo.imageLinks?.thumbnail" class="card-img" alt="No Image Avalaible">
           </div>
           <div class="col-md-8">
