@@ -15,10 +15,12 @@ export class AppComponent implements OnInit {
   searchedBook: string;
   searchedBookArray: any[];
   loading: boolean = false;
+  information: string = "Start searching for books."
 
   constructor(private bookService: BookService, private toastr: ToastrService) { }
 
   ngOnInit() {
+    console.log(this.searchedBookArray)
   }
 
 
@@ -28,8 +30,8 @@ export class AppComponent implements OnInit {
     this.searchedBook = form.value.bookName;
     this.bookService.searchBooks(this.searchedBook).subscribe(data => {
     this.searchedBookArray = data['items'];
+    if(this.searchedBookArray === undefined) this.information = "Sorry, no results for your search";
     this.loading = false;
-    this.toastr.success('Results successfully found');
     form.resetForm();
     console.log(this.searchedBookArray)
     }, error => {
