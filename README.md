@@ -8,17 +8,17 @@ This is a pre-work [Chingu](https://chingu.io) Solo project built using Google B
 
 ## Features
 
-Users can easily search and find books on Google Books in the search input.
+- Users can easily search and find books on Google Books in the search input.
 
-Users can also know more about the book they decided to select from the search results.
+- Users can also know more about the book they decided to select from the search results.
 
 ## Running the project
 
-Clone the project locally
+- Clone the project locally
 
-Run `npm install` to install all the dependencies
+- Run `npm install` to install all the dependencies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 
 ## Code scaffolding
