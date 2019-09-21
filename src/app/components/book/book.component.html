@@ -1,4 +1,4 @@
-<div class="box">
+<div class="box" *ngIf="searchResults">
     <div class="card shadow-lg" style="max-width: 540px;" *ngFor="let book of searchResults">
         <div class="row no-gutters">
           <div class="col-md-4">
@@ -7,7 +7,7 @@
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">{{book.volumeInfo.title}}</h5>
-              <p class="card-text">By: {{book.volumeInfo?.authors[0] ? book.volumeInfo.authors[0] : 'No Author found' }}</p>
+              <p class="card-text">By: {{book.volumeInfo.authors ? book.volumeInfo.authors[0] : 'No Author found' }}</p>
               <p class="card-text">Published By: {{book.volumeInfo.publisher ? book.volumeInfo.publisher : 'No Publisher found' }}</p>
               <a [href]="book.volumeInfo.infoLink" target="_blank" class="btn btn-success">See this book</a>
             </div>

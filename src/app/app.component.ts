@@ -29,6 +29,7 @@ export class AppComponent implements OnInit {
     this.searchedBook = form.value.bookName;
     this.bookService.searchBooks(this.searchedBook).subscribe(data => {
     this.searchedBookArray = data['items'];
+    // console.log(this.searchedBookArray)
     if(this.searchedBookArray === undefined) this.information = "Sorry, no results for your search";
     this.loading = false;
     form.resetForm();
