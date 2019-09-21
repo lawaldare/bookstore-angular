@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
   constructor(private bookService: BookService, private toastr: ToastrService) { }
 
   ngOnInit() {
-    console.log(this.searchedBookArray)
   }
 
 
@@ -33,7 +32,6 @@ export class AppComponent implements OnInit {
     if(this.searchedBookArray === undefined) this.information = "Sorry, no results for your search";
     this.loading = false;
     form.resetForm();
-    console.log(this.searchedBookArray)
     }, error => {
       this.toastr.error(error.message || error.error.message);
     })
