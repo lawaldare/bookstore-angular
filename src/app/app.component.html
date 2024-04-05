@@ -2,28 +2,18 @@
   <form #searchForm="ngForm">
     <h1 class="display-5 text-center mb-5 text-success">Book Finder</h1>
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-12">
         <div class="form-group">
-          <input type="text" class="form-control" #bookName="ngModel" ngModel name="bookName" required placeholder="Search For Books...">
-        </div>
-
-        <!-- Validation -->
-        <div *ngIf="bookName.touched && !bookName.valid" class="alert alert-danger">
-          <div *ngIf="bookName.errors.required"> Book Name is required </div>
-        </div>
-
-      </div>
-      <div class="col-md-4">
-        <div class="form-group">
-          <button class="btn btn-outline-success btn-block" [disabled]="searchForm.invalid" (click)="searchBook(searchForm)">Search</button>
+          <input
+            type="text"
+            class="form-control"
+            [formControl]="bookSearched"
+            placeholder="Search For Books..."
+          />
         </div>
       </div>
     </div>
   </form>
-</div>
-
-<div class=" container loading-message" *ngIf="loading">
-  <i class="fas fa-stroopwafel fa-spin text-success"></i>
 </div>
 
 <div class="container box">
@@ -31,9 +21,5 @@
 </div>
 
 <div class="container">
-  <p class="lead">{{searchedBookArray ? '' : information}}</p>
+  <p class="lead">{{ searchedBookArray ? "" : information }}</p>
 </div>
-
-<!-- <div class="container" *ngIf="searchedBookArray.length === 0">
-  <p class="lead">Start searching for books</p>
-</div> -->
